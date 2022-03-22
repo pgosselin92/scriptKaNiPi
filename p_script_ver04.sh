@@ -50,7 +50,7 @@ echo "nadinemdp" | sudo passwd --stdin NDu
 echo "linusmdp" | sudo passwd --stdin LTu
 echo "kenmdp" | sudo passwd --stdin KTh
 echo "jacquesmdp" | sudo passwd --stdin JDe
-echo "heRManmdp" | sudo passwd --stdin HSt
+echo "hermanmdp" | sudo passwd --stdin HSt
 echo "rosemdp" | sudo passwd --stdin RMa
 echo "alfredmdp" | sudo passwd --stdin ADe
 
