@@ -1,9 +1,12 @@
-# scriptKaNiPi
+# Description de scriptKaNiPi
 Script de Kacper, Nicolas et Pierre pour un exercice de simulation de création d’un système de fichiers pour une entreprise fictive nommée "Techtech".
 
-# TECHTECH
+# Comment le lancer sur une distribution Linux
+/
 
-## Groupes & GID:
+## Informations sur TECHTECH & Schéma
+
+### Groupes & GID:
 
 * Directeur = 10000
 * Recherche = 11000
@@ -11,7 +14,7 @@ Script de Kacper, Nicolas et Pierre pour un exercice de simulation de création 
 * Ingénierie = 13000
 * Techtech_admins = 16666
 
-## Utilisateurs & UID:
+### Utilisateurs & UID:
 
 * Bill Porte = 10000 = __BPo__ ---------------- MDP ==> billmdp
 * Robert Duval = 11000 = __RDu__ ---------------- MDP ==> robertmdp
@@ -27,5 +30,5 @@ Script de Kacper, Nicolas et Pierre pour un exercice de simulation de création 
 * Rose Martin = 13001 = __RMa__ ---------------- MDP ==> rosemdp
 * Alfred Demaison = 13002 = __ADe__ ---------------- MDP ==> alfredmdp
 
-## Schéma:
+### Schéma:
 ![Simplon.co](https://i.imgur.com/2pXSwwL.png)
