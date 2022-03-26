@@ -2,7 +2,6 @@
 Script de Kacper, Nicolas et Pierre pour un exercice de simulation de création d’un système de fichiers pour une entreprise fictive nommée "Techtech".
 
 # Comment l'utiliser
-_(Temporaire)_
 1. Télécharger l'archive .ZIP
 2. Décompresser "_script_KaNiPi.sh_" dans le répertoire de votre choix
 3. Lancer "_script_KaNiPi.sh_" en sudo, de cette façon : `sudo ./script_KaNiPi.sh`
@@ -33,4 +32,4 @@ Problème de permissions ? Passez temporairement en `root`, ou faites un `chmod 
 * Alfred Demaison = 13002 = __ADe__ 
 
 ### Schémas:
-[<img height="300px" src="https://i.imgur.com/4XJFSxb.png" />](https://i.imgur.com/4XJFSxb.png) [<img height="300px" src="https://i.imgur.com/dtauHZp.png" />](https://i.imgur.com/4XJFSxb.png)
+[<img height="300px" src="https://i.imgur.com/4XJFSxb.png" />] [<img height="300px" src="https://i.imgur.com/dtauHZp.png" />]
