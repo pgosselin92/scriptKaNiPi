@@ -14,7 +14,7 @@ _(Temporaire)_
 * Développement = 12000
 * Ingénierie = 13000
 * Techtech_admins = 16666
-* 
+
 ### Utilisateurs & UID:
 * Bill Porte = 10000 = __BPo__ ---------------- MDP ==> billmdp
 * Robert Duval = 11000 = __RDu__ ---------------- MDP ==> robertmdp
@@ -29,7 +29,7 @@ _(Temporaire)_
 * Herman Stamper = 13000 = __HSt__ ---------------- MDP ==> hermanmdp
 * Rose Martin = 13001 = __RMa__ ---------------- MDP ==> rosemdp
 * Alfred Demaison = 13002 = __ADe__ ---------------- MDP ==> alfredmdp
-* 
+
 ### Schémas:
 ![Simplon.co](https://i.imgur.com/4XJFSxb.png)
 ![Simplon.co](https://i.imgur.com/dtauHZp.png)
