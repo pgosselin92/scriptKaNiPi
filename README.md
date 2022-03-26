@@ -32,4 +32,4 @@ Problème de permissions ? Passez temporairement en `root`, ou faites un `chmod 
 * Alfred Demaison = 13002 = __ADe__ 
 
 ### Schémas:
-[<img height="300px" src="https://i.imgur.com/4XJFSxb.png" />] [<img height="300px" src="https://i.imgur.com/dtauHZp.png" />]
+<img height="300px" src="https://i.imgur.com/4XJFSxb.png" /> <img height="300px" src="https://i.imgur.com/dtauHZp.png" />
