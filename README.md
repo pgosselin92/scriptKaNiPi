@@ -32,3 +32,4 @@ Script de Kacper, Nicolas et Pierre pour un exercice de simulation de création 
 
 ### Schéma:
 ![Simplon.co](https://i.imgur.com/dtauHZp.png)
+![Simplon.co](https://i.imgur.com/4XJFSxb.png)
