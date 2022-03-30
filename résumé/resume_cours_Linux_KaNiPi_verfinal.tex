@@ -1,0 +1,341 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\usepackage[left=17mm, top=0cm, bottom=2cm, right=17mm]{geometry}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{afterpage}
+\usepackage{xcolor}
+\usepackage{dblfloatfix}
+\usepackage{eso-pic}
+\graphicspath{ {./resume_imgs/} }
+\renewcommand{\thesection}{\Roman{section}} 
+\renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
+\renewcommand{\thesubsubsection}{\hspace{0.33cm}\thesubsection.\Roman{subsubsection}}
+\begin{document}
+\AddToShipoutPictureBG*{\AtTextCenter{\hspace*{-2.5cm}\includegraphics[scale=0.08]{fedora_logo.png}}}
+\AddToShipoutPictureBG*{\AtStockLowerLeft{\hspace*{6.6cm}\includegraphics[scale=0.135]{tcl_02.png}}}
+\definecolor{bgcolor}{RGB}{131,131,188}
+\pagecolor{bgcolor}\afterpage{\nopagecolor}
+\title{\vspace*{4.4cm}\textbf{\textit{\fontsize{40}{44}\selectfont Plongée dans l'abîme Linux\vspace{5.2em}}}}
+\date{\fontsize{22}{24}\selectfont (Par Kacper, Nicolas et Pierre)}
+\author{\textbf{\fontsize{36}{40}\selectfont Résumé du cours}}
+\maketitle
+%\begin{center}
+%\section*{\Huge\textbf(Par Kacper, Nicolas et Pierre)}
+%\end{center}
+\newpage
+\vspace*{1cm}
+\section{\textbf{\fontsize{30}{34}\selectfont Table des matières}}
+\subsection{\Large Chapitre 1 : Les outils essentiels de base}
+\subsubsection{\textit{Sept commandes essentielles sous Linux}}
+\subsubsection{\textit{Les attributs Linux et UNIX}}
+\subsubsection{\textit{Utilité de la touche TAB}}
+\subsubsection{\textit{Les trois canaux principaux}}
+\textit{Commandes abordées: \color{red}whoami, hostname, date, uname, passwd, touch, last, man, history, pipe\vspace{-0.65em}}
+\subsection{\Large Chapitre 2 : Les outils pour la gestion de fichiers}
+\subsubsection{\textit{Les arborescences de fichiers}}
+\subsubsection{\textit{Quelques commandes basiques}}
+\subsubsection{\textit{Les "Wildcards"}}
+\subsubsection{\textit{Hard-Link et Symbolic-Link}}
+\textit{Commandes abordées: \color{red}mount, man hier, ls, cp, cd, mkdir, rmdir, mv, rm, ln, find\vspace{-0.65em}}
+\subsection{\Large Chapitre 3 : Traitement de texte}
+\subsubsection{\textit{Éditeur de texte}}
+\textit{Commandes abordées: \color{red}less, cat, tac, head, tail, grep, awk, sort, tr\vspace{-0.65em}}
+\subsection{\Large Chapitre 4 : Se connecter à un serveur}
+\subsubsection{\textit{Types d'utilisateurs sur Linux}}
+\textit{Commandes abordées: \color{red} su, sudo, ssh\vspace{-0.65em}}
+\subsection{\Large Chapitre 5 : La gestion des utilisateurs}
+\subsubsection{\textit{Pourquoi les utilisateurs sont-ils nécessaires}}
+\textit{Commandes abordées: \color{red} useradd, groupadd, userdel, groupdel, usermod, groupmod, chage\vspace{-0.65em}}
+\subsection{\Large Chapitre 6 : Les permissions et les quotas}
+\subsubsection{\textit{Configuration Access List}}
+\textit{Commandes abordées: \color{red} chmod, setfacl, getfacl, lsattr, chattr\vspace{-0.65em}}
+\subsection{\Large Chapitre 7 : Configurer les éléments réseaux}
+\subsubsection{\textit{Types de limitations et configuration réseau}}
+\subsubsection{\textit{Gestion des pare-feux sous Linux}}
+\textit{Commandes abordées: \color{red} repquota, ip, iptables, nmcli, ping, dig, firewall-cmd\vspace{-0.65em}}
+\newpage
+\vspace*{1cm}
+\section*{\underline{Chapitre 1 : Les outils essentiels de base}}
+Il existe 7 commandes essentielles sous la majorité des distributions Linux:
+\begin{itemize}
+  \setlength\itemsep{-0.4em}
+\item \textbf{"whoami"} : Elle vous donne votre login actuel.
+\item \textbf{"hostname"} : Elle vous donne le nom de la machine sur laquelle vous travaillez.
+\item \textbf{"date"} : Elle vous affiche la date actuelle.
+\item \textbf{"uname"} : Elle vous donne des informations sur le système actuel.
+\item \textbf{"passwd"} : Elle permet de changer le mot de passe d'un l'utilisateur.
+\item \textbf{"touch"} : Elle crée un fichier vide ou met à jour la date de modification d'un fichier existant.
+\item \textbf{"last"} : Elle vous donne la liste des utilisateurs qui se sont connectés récemment sur le système.
+\end{itemize}
+La plupart des commandes peuvent être accompagnées d'un attribut qui modifient certains critères de celle-ci selon l'attribut utilisé.\\
+\\
+Les attributs Linux ne possèdent qu'un seul tiret.\\
+Les attributs Unix quant à eux possèdent deux tirets.\\
+L'attribut "--help" sert à afficher une aide sur la commande en question.\\
+\\
+La commande "man" sert à ouvrir le manuel de la distribution Linux sur une commande demandée. Le manuel a plusieurs sections qui correspondent à différents aspects de chaque commande. Par exemple, "man 1 passwd" vous ouvrira le manuel pour la commande passwd à la section 1 qui est la section des commandes utilisateur. L'attribut -a permettra à "man" d'afficher toutes les sections du manuel pour la commande en question.\\
+\\
+Le Shell possède un outil "autocomplete", ce qui permet d'auto-achever des morceaux de commandes en appuyant sur la touche TAB s'il en existe commençant par ce que vous avez tapé. Tapez 2x sur TAB pour avoir une liste réduite de commandes possibles.\\
+\\
+La commande "history" référence un fichier qui conserve les logs des commandes utilisées par l'utilisateur.\\
+(Très pratique pour retrouver toutes les commandes tapées sur un serveur par un utilisateur kamikaze)\\
+\\
+\textbf{En Linux, il y a 3 canaux principaux:}
+\begin{itemize}
+  \setlength\itemsep{-0.4em}
+\item Le \textbf{STDIN} : C'est l'input vers la distribution (en général, c'est un clavier).
+\item Le \textbf{STDOUT} : C'est l'output vers l'utilisateur (en général, un écran).
+\item Le \textbf{STDERR} : C'est le canal d'erreur (en général, vers un fichier).
+\end{itemize}
+Il est possible de diriger la sortie standard vers un fichier plutôt que vers l'écran.\\
+Par exemple, la commande "history >> /home/admin/Documents/test" vous renverra les logs des commandes récentes dans un fichier nommé "test" qui lui sera dans "Documents", qui lui-même se trouve dans "admin", et "admin" se trouvant dans "home".\\
+\\
+Les "Tuyaux" (pipe) << | >> : \\
+Le "tuyau" (pipe) permet de rediriger la sortie d'une commande dans l'entrée d'une seconde pour que la deuxième commande effectue un traitement sur le résultat de la première.\\
+\newpage
+\vspace*{1cm}
+\section*{\underline{Chapitre 2 : Les outils pour la gestion de fichiers}}
+Les arborescences de fichiers en Linux prennent toujours naissance avec le root directory ou le "/"\\
+Depuis le "/" l'arborescence se dessine autour de dossiers fondamentaux pour le fonctionnement du système.\\
+\\
+Il est recommandé d'isoler certains dossiers sur différents stockages, par exemple le "/home" car il prend souvent beaucoup de place.\\
+\\
+\\
+\underline{\textbf{Quelques commandes basiques:}}\\
+\\ 
+$\rightarrow$ \textbf{"mount"} sert à connecter une partie du système de fichier sur un stockage physique particulier.\\
+$\rightarrow$ \textbf{"man hier"} vous permet d'obtenir toutes les informations sur le système de fichier.\\
+$\rightarrow$ \textbf{"ls"} vous renvoie la liste des fichiers et dossiers présents dans le répertoire courant.
+\begin{itemize}
+  \setlength\itemsep{-0.4em}
+\item \textbf{"ls" avec argument "-l"}: renvoie aussi les propriétés de ceux-ci.
+\item \textbf{"ls" avec l'argument "-a"}: renvoie TOUS les fichiers/dossiers présents dans le répertoire courant.
+\item \textbf{"ls" avec l'argument "-lrt"}: renvoie la liste des fichiers/dossiers classés en fonction du temps de la dernière modif.\\ 
+\end{itemize}
+Le Shell possède des \textbf{"Wildcards"}. C'est-à-dire qu'il est capable d'interpréter des symboles de remplacement dans les commandes. Voici certains de ces symboles:
+\begin{itemize}
+\setlength\itemsep{-0.4em}
+\item "\textbf{*}" remplace plusieurs caractères inconnus.
+\item "\textbf{?}" remplace un caractère inconnu.
+\item "\textbf{a-9}" remplace un caractère par un des caractères du "range" défini.\\ 
+\end{itemize}
+La commande "\textbf{cp}" permet de copier un fichier.\\
+Exemple:
+\begin{itemize}
+\setlength\itemsep{-0.4em}
+\item "cp [source] [destination]" pour un fichier.
+\item "cp -R [source] [destination]" pour un dossier.\\ 
+\end{itemize}
+La commande "\textbf{cd}" vous permet de vous déplacer dans le système.
+Exemple :
+\begin{itemize}
+\setlength\itemsep{-0.4em}
+\item "cd [chemin]"
+\item "cd ~" équivaut à "cd /home".
+\item "cd ." permet de rester dans le répertoire courant.
+\item "cd .." permet de remonter dans le répertoire parent.\\\\\\\\\\\\\\\\\\\\\\\\\\
+\end{itemize}
+La commande "\textbf{mkdir}" permet de créer un dossier dans le système.\\
+La commande "\textbf{rmdir}" permet de supprimer un dossier dans le système.\\
+La commande "\textbf{mv}" permet de déplacer un fichier.\\
+La commande "\textbf{rm}" permet de supprimer un fichier.
+\begin{itemize}
+\setlength\itemsep{-0.4em}
+\item "-r" permet de supprimer un dossier.
+\item "-f" permet de forcer la suppression du fichier ou dossier sans confirmation.
+\end{itemize}
+\textbf{[!] Attention:} "\textbf{rm -rf}" peut être extrêmement dangereux si utilisé avec les droits "root".\\
+\\
+Un chemin absolu commence à la racine du système de fichier, donc avec un backslash("/").\\
+Un chemin relatif commence à la position actuelle dans le système de fichier.\\
+\\\\
+\underline{\textbf{Hard-Link et Symbolic-Link}}\\
+\\
+Le Hard-Link référence un inode qui lui même référence un block sur le stockage.\\
+Le Symbolic-Link référence un Hard-Link.\\
+La commande "\textbf{ln}" crée un Hard-Link.\\
+La commande "\textbf{ln -s}" crée un Symbolic-Link.\\
+La commande "\textbf{find}" permet de trouver un fichier.\\\\\\
+%\newpage\vspace*{1cm}
+\section*{\underline{Chapitre 3 : Traitement de texte}}
+\textbf{VIM} permet d'éditer des fichiers et faire du traitement de texte, il fonctionne sous 3 modes:
+\begin{itemize}
+\setlength\itemsep{-0.4em}
+\item mode "\textbf{command}" permet de sauvegarder, rechercher, quitter.
+\item mode "\textbf{insert}" permet d'éditer le texte.
+\item mode "\textbf{visual}" permet de faire des sélections dans le texte.\\
+\end{itemize}
+La commande "\textbf{less}" organise le texte en page pour le Shell.\\
+La commande "\textbf{cat}" permet de lire un fichier directement dans le shell sans mettre le texte en page.\\
+La commande "\textbf{tac}" fonctionne de la même façon que "cat" mais en commençant par la fin du fichier.\\
+La commande "\textbf{head}" permet de lire les n premières lignes d'un fichier.\\
+La commande "\textbf{tail}" permet de lire les n dernières lignes d'un fichier.\\
+\\
+La commande "\textbf{grep}" permet de trouver une correspondance entre une expression et un texte contenu dans un fichier.\\
+La commande "\textbf{awk}" permet de découper un texte en fonction de ses délimiteurs.\\
+La commande "\textbf{sort}" permet de trier un texte dans l'ordre alphabétique ou numérique.\\
+La commande "\textbf{tr}" permet de traduire certains caractères du texte en d'autres.\\
+\newpage\vspace*{1cm}
+\section*{\underline{Chapitre 4 : Se connecter à un serveur}}
+Il existe deux types d'utilisateur sur Linux:
+\begin{enumerate}
+\setlength\itemsep{-0.4em}
+\item Les "\emph{local user}" avec certaines autorisations, sans accès au noyau.
+\item Le superuser "root" qui est tout puissant sur le système et a accès au noyau.
+\end{enumerate}
+Notez qu'il est possible de se connecter en tant que "root" à condition de connaître son mot de passe. Il est également préférable de ne travailler sur un serveur en "root" qu'en cas de nécessité et si l'on est sûr de ce que l'on fait, car un accident ou une mauvaise manipulation en tant que root peut être fatale pour un serveur.\\
+\\
+La commande "\textbf{su}"\emph{(Switch User)} permet de changer de session utilisateur.\\
+La commande "\textbf{su -}" permet de se connecter au Shell avec les droits de "root".\\
+La commande "\textbf{sudo}"\emph{(SuperUser Do)} permet de lancer une commande en tant que "superuser".\\
+\\
+Il est possible de se connecter à distance sur un Linux à l'aide telnet ou ssh.\\
+Le ssh étant beaucoup plus moderne et sécurisé que telnet, nous utiliserons ssh.\\
+Exemple: ssh [Username]@[Adresse IP]\\
+%\newpage\vspace*{1cm}
+\section*{\underline{Chapitre 5 : La gestion des utilisateurs}}
+\emph{Pourquoi les utilisateurs sont-ils nécessaires ?}\\
+En simple, il est impossible de se connecter à une distribution Linux sans utilisateur, tout processus démarré dans le système appartient à un utilisateur. Pour accéder à une ressource, il faut un compte utilisateur enregistré dans le système. Chaque fichier ou dossier doit appartenir à un utilisateur.\\
+\\
+La commande "\textbf{useradd}" permet de créer un utilisateur:\\
+Exemple: useradd [options] [login]
+\begin{itemize}
+\setlength\itemsep{-0.5em}
+\item "\textbf{useradd --help}" apporte une courte aide sur l'utilisation de la commande.
+\item "\textbf{useradd -m [login]}" permet de créer un /home directory en même temps que la création de l'utilisateur.
+\item "\textbf{useradd -g [groupe] [login]}" permet d'attribuer un groupe primaire à l'utilisateur créé, mais attention: le groupe doit être déjà existant.
+\item "\textbf{useradd -G [groupe] [login]}" permet d'attribuer un groupe secondaire à l'utilisateur créé(ça ne crée pas le groupe non plus).
+\end{itemize}
+La commande "\textbf{groupadd}" permet de créer un groupe:
+\begin{itemize}
+\setlength\itemsep{-0.5em}
+\item "\textbf{groupadd [options] [groupe]}" permet de créer un groupe.
+\item "\textbf{groupadd -g [groupe]}" permet de choisir le Group ID du groupe créé.
+\end{itemize}
+Exemple: "groupadd -g 2000 compta"\\
+\newpage\vspace*{1cm}
+La commande "\textbf{usermod}" permet d'attribuer un groupe à un utilisateur déjà existant:
+\begin{itemize}
+\setlength\itemsep{-0.5em}
+\item "\textbf{usermod" -g [nouveau groupe primaire] [login]}" permet de changer le groupe primaire de l'utilisateur.
+\item "\textbf{usermod" -G [nouveaux groupes secondaires] [login]}" permet d'écraser la liste de groupes secondaires de l'utilisateur pour les remplacer par ceux cités.
+\item "\textbf{usermod" -aG [nouveaux groupes secondaires] [login]}" permet d'ajouter des groupes secondaires à ceux déjà existants chez l'utilisateur.
+\end{itemize}
+La commande "\textbf{userdel}" permet de supprimer un utilisateur.
+\begin{itemize}
+\setlength\itemsep{-0.5em}
+\item "\textbf{userdel -r}" permet de supprimer un utilisateur ainsi que son répertoire personnel.
+\end{itemize}
+La commande "\textbf{groupdel}" permet de supprimer un groupe.
+\begin{itemize}
+\setlength\itemsep{-0.5em}
+\item "\textbf{groupdel -f}" permet de forcer la suppression d'un groupe même si celui-ci contient des utilisateurs.
+\end{itemize}
+La commande "\textbf{groupmod}" permet de modifier les propriétés d'un groupe.\\
+\\
+La commande "\textbf{chage}" permet approximativement les mêmes actions que passwd, en plus lisible.\\
+Le fichier passwd contient la liste d'utilisateurs, est en accès non restreint et contient 7 champs:
+\begin{itemize}
+\setlength\itemsep{-0.4em}
+\item \textbf{Login}
+\item \textbf{Password}
+\item \textbf{UID}
+\item \textbf{GID}
+\item \textbf{comment}
+\item \textbf{homedir}
+\item \textbf{shell}\\
+\end{itemize}
+Le fichier group contient la définition des groupes, la liste de ses utilisateurs et contient 4 champs:
+\begin{itemize}
+\setlength\itemsep{-0.4em}
+\item \textbf{Group}
+\item \textbf{password}
+\item \textbf{GID}
+\item \textbf{users}\\
+\end{itemize}
+Il est possible de créer un utilisateur entièrement à la main en travaillant sur les fichiers car ce sont des fichiers plats, mais c'est vivement déconseillé.\\
+Le fichier "\textbf{shadow}" contient, entre autre, les mots de passes cryptés des utilisateurs.\\
+\newpage\vspace*{1cm}
+\section*{\underline{Chapitre 6 : Les permissions et les quotas}}
+La commande "\textbf{chmod [permissions] [chemin]}" permet de changer les permissions sur un fichier ou dossier.\\
+Il est possible de travailler avec le modèle \textbf{UGO} \emph{(User-Group-Other)} ou en octal \emph{(de 0 à 7)}\\
+\\
+La commande "\textbf{setfacl}" permet de définir une access list.\\
+Exemple: "setfacl -Rm [modif permission] [fichier/chemin de dossier]"\\
+\\
+C'est par l'intermédiare de cette commande que nous allons orienter le type d'access list configuré:\\
+- Normal \emph{(appliqué sur les fichiers déjà existants)}.\\
+- Default \emph{(appliqué sur les fichiers qui seront nouvellement créés)}.\\
+\\
+La commande "\textbf{getfacl [fichier/chemin de dossier]}" permet de connaître le statut ACL du fichier/dossier.\\
+\\
+Les permissions permettent d'accorder des droits aux utilisateurs sur certains fichiers et dossiers, les attributs étendus quant à eux ne concernent que les fichiers et se posent comme une couche supplémentaire de sécurité pour le système de fichiers.\\
+La commande "\textbf{lsattr}" permet de lister les attributs étendus des fichiers.\\
+La commande "\textbf{chattr}" permet de changer les attributs étendus des fichiers.\\
+%\newpage\vspace*{1cm}
+\section*{\underline{Chapitre 7 : Configurer les éléments réseaux}}
+Les quotas permettent des placer une limite d'espace disponible pour un utilisateur ou un groupe.\\
+Il existe deux types de limites: les blocks et les inodes.\\
+\\
+La commande "\textbf{repquota -a}" donne l'état actuel des quotas.\\
+\\
+Il existe deux types de configurations réseau Linux:\\
+1 - La configuration "\textbf{run time}" conçue pour monitorer les paramètres et effectuer des tests.\\
+2 - La configuration "\textbf{persistante}" conçue pour fournir à votre machine un accès permanent et fiable au réseau.\\
+\\
+Pour travailler en mode "run time" il faut utiliser la commande "\textbf{ip [options] [objets]}".\\
+Pour voir les interfaces réseau disponibles sur le système, utilisez la commande "\textbf{ip link}".\\
+Pour voir les interfaces réseau ainsi que leur adresse, utilisez la commande "\textbf{ip address show}".\\
+Pour voir la passerelle par défaut de vos interfaces, utilisez la commande "\textbf{ip route show}".\\
+Pour créer une configuration réseau persistante, utilisez la commande "nmcli". La commande étant très complète, il est nécessaire d'utiliser <<TAB>> pour  auto-achever et construire instinctivement les commandes de configuration.\\
+Nous travaillons donc principalement dans "\textbf{nmcli connection}".\\
+\newpage\vspace*{1cm}
+Afin de modifier une connexion, il faudra compléter par un "\textbf{modify}", comme ceci: "\textbf{nmcli connection modify}". Ensuite, il faudra choisir un type de connexion.
+En filaire, par exemple: "\textbf{nmcli connection modify Connexion\ filaire\ 1 [type IP] (auto complete)}".\\
+Pour activer l'interface de la configuration réseau, utilisez la commande "\textbf{nmcli connection up [nom de la connexion]}".\\
+\\
+Afin de tester la connectivité d'un réseau, utilisez la commande "\textbf{ping [adresse ip/nom d'hôte]}". Cela va envoyer des paquets et en demander en retour. Si le serveur renvoie les paquets correctement, la connexion est établie.\\
+\\
+Pour vérifier l'activité du serveur dns et la validité d'un hostname, utilisez la commande "\textbf{dig [nom d'hôte]}".\\
+\\
+Le firewall est une couche de sécurité supplémentaire, il est principalement installé sur les routeurs afin d'empêcher des connexions entrantes non désirées sur le serveur.\\
+Il est géré par Netfilter et est directement intégré au kernel.\\
+Netfilter va donc filtrer les "\textbf{input}"\emph{(paquets entrants)}, "\textbf{output}"\emph{(paquets sortants)}, "\textbf{forward}"\emph{(dans un routeur pour les paquets transférés)}.\\
+Afin de manipuler Netfilter, il faut utiliser la commande "\textbf{iptables}". Cette commande est extrêmement riche et est donc très difficile à maîtriser sans l'utiliser régulièrement.\\
+\\
+Il existe des ports bien connus à connaître pour chaque protocole, voici une liste des plus utilisés:
+\begin{itemize}
+\setlength\itemsep{-0.4em}
+\item \textbf{HTTP} (Web) = port 80
+\item \textbf{HTTPS} (Web sécurisé) = port 443
+\item \textbf{FTP} (Transfert de fichier) = port 20/21
+\item \textbf{SFTP} (Transfert de fichier sécurisé) = port 22
+\item \textbf{DNS} (Résolution de nom de domaine) = port 53
+\item \textbf{SSH} (Connexion à distance sécurisée) = port 22
+\end{itemize}
+\vspace*{1cm}
+Pour connaître les règles de trafic en vigueur sur votre réseau, utilisez la commande "\textbf{iptables -L -v}".\\
+"\textbf{firewall-cmd}" est une surcouche de iptables et permet de gérer les input et output sur votre système.\\
+\\
+Il est important de connaître le statut des autorisations de trafic sur le système pour firewall-cmd avec la commande "\textbf{firewall-cmd --list-all}".\\
+La configuration de firewall-cmd est basée sur l'autorisation des services, ceux-ci sont visibles grâce à la commande "\textbf{firewall-cmd --get-services}".\\
+\\
+Dans ces fichiers on retrouve l'ensemble des éléments nécessaires pour configurer le firewall.\\
+\\
+Pour accorder l'autorisation d'un service et l'autoriser à communiquer à travers du firewall, il faut utiliser la commande "\textbf{firewall-cmd --add-service ssh}" pour la version run time et "\textbf{firewall-cmd --add-service ssh --permanent}" pour la version persistante.\\
+\\
+Pour supprimer l'utilisation d'un service il faut remplacer add par remove.\\
+Exemple: "firewall-cmd --remove-service ssh --permanent" pour la version persistante.\\
+\\
+Après avoir imposé une nouvelle règle, il faut relancer le service avec reload.\\
+Exemple: "firewall-cmd -reload".\\
+\newpage\vspace*{12cm}
+\begin{center}
+\title{\Huge\textbf{\fontsize{40}{44}\selectfont Fin du résumé}}
+\date{}
+\maketitle
+\end{center}
+\end{document}
