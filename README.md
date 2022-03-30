@@ -2,9 +2,9 @@
 Script de Kacper, Nicolas et Pierre pour un exercice de simulation de création d’un système de fichiers pour une entreprise fictive nommée "Techtech".
 
 # Comment l'utiliser
-- __1.__ Télécharger _"script_KaNiPi.sh"_ et le mettre dans le répertoire de son choix.
-- __2.__ Lancer _"script_KaNiPi.sh"_ en sudo, de cette façon : `sudo ./script_KaNiPi.sh`
-- __3.__ Le système de fichier est prêt à l'emploi.
+__1.__ Télécharger _"script_KaNiPi.sh"_ et le mettre dans le répertoire de son choix.  
+__2.__ Lancer _"script_KaNiPi.sh"_ en sudo, de cette façon : `sudo ./script_KaNiPi.sh`  
+__3.__ Le système de fichier est prêt à l'emploi.  
 
 Problème de permissions ? Passez temporairement en `root`, ou faites un `chmod 777 script_KaNiPi.sh`
 
